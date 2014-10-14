@@ -20,9 +20,9 @@ auth:
     # your app redirect_url for the service: if the service is Google, path is always "/oauth2callback"
     redirect_url: https://yourapp.example.com/oauth2callback
 
-#  # HTTP request header definitions
+#  # HTTP request header definitions (optional)
 #  header:
-#    user_key: x-gate-user # field name for authenticated user info
+#    user_key: x-gate-user # field name for authenticated user info (default: x-gate-user)
 
 # # restrict user request. (optional)
 # restrictions:
