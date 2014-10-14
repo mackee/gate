@@ -6,6 +6,8 @@ import (
 	"io/ioutil"
 )
 
+const AuthHeaderUserKeyDefault = "x-gate-user"
+
 type Conf struct {
 	Addr         string      `yaml:"address"`
 	SSL          SSLConf     `yaml:"ssl"`
@@ -23,6 +25,7 @@ type SSLConf struct {
 type AuthConf struct {
 	Session AuthSessionConf `yaml:"session"`
 	Info    AuthInfoConf    `yaml:"info"`
+	Header  AuthHeaderConf  `yaml:"header"`
 }
 
 type AuthSessionConf struct {
@@ -36,6 +39,10 @@ type AuthInfoConf struct {
 	RedirectURL  string `yaml:"redirect_url"`
 	Endpoint     string `yaml:"endpoint"`
 	ApiEndpoint  string `yaml:"api_endpoint"`
+}
+
+type AuthHeaderConf struct {
+	UserKey string `yaml:"user_key"`
 }
 
 type ProxyConf struct {
@@ -73,6 +80,10 @@ func ParseConf(path string) (*Conf, error) {
 	}
 	if c.Auth.Info.RedirectURL == "" {
 		return nil, errors.New("auth.info.redirect_url config is required")
+	}
+
+	if c.Auth.Header.UserKey == "" {
+		c.Auth.Header.UserKey = AuthHeaderUserKeyDefault
 	}
 
 	if c.Htdocs == "" {

@@ -115,6 +115,7 @@ func (a *GoogleAuth) Authenticate(domain []string, c martini.Context, tokens oau
 		if user != nil {
 			log.Printf("user %s logged in", email)
 			c.Map(user)
+			r.Header.Set(a.conf.Auth.Header.UserKey, email)
 		} else {
 			log.Printf("email doesn't allow: %s", email)
 			forbidden(w)
