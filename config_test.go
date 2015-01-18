@@ -29,6 +29,9 @@ auth:
     client_secret: 'secret client secret'
     redirect_url: 'http://example.com/oauth2callback'
 
+  header:
+    user_key: 'x-gate-user'
+
 htdocs: ./
 
 proxy:
@@ -49,54 +52,7 @@ proxy:
 		t.Errorf("unexpected address: %s", conf.Addr)
 	}
 
-	if conf.Auth.Header.UserKey != AuthHeaderUserKeyDefault {
-		t.Errorf("unexpected auth header user key: %s", conf.Auth.Header.UserKey)
-	}
-}
-
-func TestParseAuthHeader(t *testing.T) {
-	f, err := ioutil.TempFile("", "")
-	if err != nil {
-		t.Error(err)
-	}
-	defer func() {
-		f.Close()
-		os.Remove(f.Name())
-	}()
-
-	data := `---
-address: ":9999"
-
-auth:
-  session:
-    key: secret
-
-  info:
-    service: 'google'
-    client_id: 'secret client id'
-    client_secret: 'secret client secret'
-    redirect_url: 'http://example.com/oauth2callback'
-
-  header:
-    user_key: 'auth-header-user-key'
-
-htdocs: ./
-
-proxy:
-  - path: /foo
-    dest: http://example.com/bar
-    strip_path: yes
-`
-	if err := ioutil.WriteFile(f.Name(), []byte(data), 0644); err != nil {
-		t.Error(err)
-	}
-
-	conf, err := ParseConf(f.Name())
-	if err != nil {
-		t.Error(err)
-	}
-
-	if conf.Auth.Header.UserKey != "auth-header-user-key" {
+	if conf.Auth.Header.UserKey != "x-gate-user" {
 		t.Errorf("unexpected auth header user key: %s", conf.Auth.Header.UserKey)
 	}
 }
