@@ -6,8 +6,6 @@ import (
 	"io/ioutil"
 )
 
-const AuthHeaderUserKeyDefault = "x-gate-user"
-
 type Conf struct {
 	Addr         string      `yaml:"address"`
 	SSL          SSLConf     `yaml:"ssl"`
@@ -80,10 +78,6 @@ func ParseConf(path string) (*Conf, error) {
 	}
 	if c.Auth.Info.RedirectURL == "" {
 		return nil, errors.New("auth.info.redirect_url config is required")
-	}
-
-	if c.Auth.Header.UserKey == "" {
-		c.Auth.Header.UserKey = AuthHeaderUserKeyDefault
 	}
 
 	if c.Htdocs == "" {

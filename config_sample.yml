@@ -22,7 +22,7 @@ auth:
 
 #  # HTTP request header definitions (optional)
 #  header:
-#    user_key: x-gate-user # field name for authenticated user info (default: x-gate-user)
+#    user_key: your key # field name for authenticated user info (ex. x-gate-user)
 
 # # restrict user request. (optional)
 # restrictions:
