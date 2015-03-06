@@ -1,0 +1,55 @@
+
+{
+        "ImportPath": "github.com/typester/gate",
+        "GoVersion": "go1.3.1",
+        "Deps": [
+                {
+                        "ImportPath": "github.com/boj/redistore",
+                        "Comment": "v1",
+                        "Rev": "9d1554b400d726c7aa54b6e4a836f273b72b97f7"
+                },
+                {
+                        "ImportPath": "github.com/codegangsta/inject",
+                        "Comment": "v1.0-rc1-4-g4b81725",
+                        "Rev": "4b8172520a03fa190f427bbd284db01b459bfce7"
+                },
+                {
+                        "ImportPath": "github.com/garyburd/redigo/redis",
+                        "Rev": "95b854181b2a1483d2b5b20c6af36ae03f8cd5f5"
+                },
+                {
+                        "ImportPath": "github.com/go-martini/martini",
+                        "Comment": "v1.0-47-g9c8b84a",
+                        "Rev": "9c8b84a170f5fe2352ae698a85cd5eb66b38a290"
+                },
+                {
+                        "ImportPath": "github.com/golang/oauth2",
+                        "Rev": "b2a1756f9852171510e06ac5727cbb4b6faae471"
+                },
+                {
+                        "ImportPath": "github.com/gorilla/context",
+                        "Rev": "14f550f51af52180c2eefed15e5fd18d63c0a64a"
+                },
+                {
+                        "ImportPath": "github.com/gorilla/securecookie",
+                        "Rev": "1b0c7f6e9ab3d7f500fd7d50c7ad835ff428139b"
+                },
+                {
+                        "ImportPath": "github.com/gorilla/sessions",
+                        "Rev": "aa5e036e6c44aec69a32eb41097001978b29ad31"
+                },
+                {
+                        "ImportPath": "github.com/martini-contrib/oauth2",
+                        "Rev": "f533fa2fcc50728433637d12e09e2488b0751f94"
+                },
+                {
+                        "ImportPath": "github.com/martini-contrib/sessions",
+                        "Rev": "fa13114fbcf036dff8185d728651d85fcef772db"
+                },
+                {
+                        "ImportPath": "gopkg.in/yaml.v1",
+                        "Rev": "9f9df34309c04878acc86042b16630b0f696e1de"
+                }
+        ]
+}
+
